@@ -16,7 +16,7 @@ new class extends Component
     }
 }; ?>
 
-<nav class="navbar bg-base-100 rounded-box gap-4 shadow">
+<nav class="navbar bg-base-100 gap-4 shadow">
     <div class="navbar-start">
 
         <!-- Logo (Non responsive) -->
@@ -80,38 +80,47 @@ new class extends Component
                 <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
             </button>
             <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical" aria-labelledby="profile-dropdown">
-                                <li class="dropdown-header gap-2">
-                                    <div class="max-w-full">
-                                        <h6 class="text-base-content/90 text-base font-semibold truncate max-w-[15ch]">
-                                            <span
-                                                x-data="{{ json_encode(['name' => auth()->user()->name]) }}"
-                                                x-text="name"
-                                                x-on:profile-updated.window="name = $event.detail.name">
-                                            </span>
-                                        </h6>
-                                        <small class="text-base-content/50 truncate block max-w-[25ch]">
-                                            <span
-                                                x-data="{{ json_encode(['email' => auth()->user()->email]) }}"
-                                                x-text="email"
-                                                x-on:profile-updated.window="email = $event.detail.email">
-                                            </span>
-                                        </small>
-                                    </div>
-                                </li>
-                                <li class="!my-2">
-                                    <x-dropdown-link class="dropdown-item" :href="route('profile')" wire:navigate>
-                                        <span class="icon-[tabler--user]"></span>
-                                        My Profile
-                                    </x-dropdown-link>
-                                </li>
-                                <li class="dropdown-footer gap-2">
-                                    <button class="btn btn-error btn-soft btn-block" wire:click="logout">
-                                        <span class="icon-[tabler--logout]"></span>
-                                        <span>Log out</span>
-                                    </button>
-                                </li>
-                            </ul>
+                <li class="dropdown-header gap-2">
+                    <div class="max-w-full">
+                        <h6 class="text-base-content/90 text-base font-semibold truncate max-w-[15ch]">
+                            <span
+                                x-data="{{ json_encode(['name' => auth()->user()->name]) }}"
+                                x-text="name"
+                                x-on:profile-updated.window="name = $event.detail.name">
+                            </span>
+                        </h6>
+                        <small class="text-base-content/50 truncate block max-w-[25ch]">
+                            <span
+                                x-data="{{ json_encode(['email' => auth()->user()->email]) }}"
+                                x-text="email"
+                                x-on:profile-updated.window="email = $event.detail.email">
+                            </span>
+                        </small>
+                    </div>
+                </li>
+                <li class="!my-2">
+                    <x-dropdown-link class="dropdown-item" :href="route('profile')" wire:navigate>
+                        <span class="icon-[tabler--user]"></span>
+                        My Profile
+                    </x-dropdown-link>
+                </li>
+                <li class="dropdown-footer gap-2">
+                    <button class="btn btn-error btn-soft btn-block" wire:click="logout">
+                        <span class="icon-[tabler--logout]"></span>
+                        <span>Log out</span>
+                    </button>
+                </li>
+            </ul>
         </div>
+
+        {{-- Dark mode --}}
+        <div class="flex items-center">
+                <button x-on:click="darkMode = !darkMode" type="button" class="flex items-center">
+                    <span x-show="darkMode" class="swap-off icon-[tabler--sun] size-7 text-white"></span>
+                    <span x-show="!darkMode" class="swap-on icon-[tabler--moon] size-7 text-gray-800"></span>
+                </button>
+            </div>
+
     </div>
 </nav>
 

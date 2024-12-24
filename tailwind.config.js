@@ -18,8 +18,11 @@ export default {
     },
 
     flyonui: {
-        themes: ["dark"]
+        themes: ["light", "dark"]
     },
+
+    darkMode: ['class', '[data-theme="dark"]'],
+
 
     plugins: [
         forms,
