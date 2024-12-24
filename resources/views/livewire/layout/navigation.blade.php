@@ -18,18 +18,62 @@ new class extends Component
 
 <nav>
     <nav class="navbar bg-base-100 rounded-box gap-4 shadow">
-        <div class="navbar-start items-center">
+        <div class="navbar-start">
+
+            <!-- Logo (Non responsive) -->
             <a href="{{ route('dashboard') }}" class="md:block hidden" wire:navigate>
                 <x-application-logo class="block h-9 w-auto" />
             </a>
+
+            <!-- Hamburger (Responsive) -->
+            <div class="md:hidden dropdown relative inline-flex [--auto-close:inside] [--offset:9]">
+                <button id="dropdown-mobile" type="button" class="dropdown-toggle btn btn-text btn-circle dropdown-open:bg-base-content/10 dropdown-open:text-base-content" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                    <span class="icon-[tabler--menu-2] size-5"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-open:opacity-100 hidden" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-mobile">
+                    <li class="dropdown-item">
+                        <a href="{{route('dashboard')}}" active="{{request()->routeIs('dashboard')}}" wire:navigate>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="#">
+                            Page 2
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="#">
+                            Page 3
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="navbar-center max-md:hidden">
-            <ul class="menu menu-horizontal p-0 font-medium">
-              <li><a href="#">Link 1</a></li>
-              <li><a href="#">Link 2</a></li>
-              <li><a href="#">Link 3</a></li>
+        <div class="navbar-center">
+
+            <!-- Responsive logo -->
+            <a href="{{ route('dashboard') }}" class="md:hidden" wire:navigate>
+                <x-application-logo class="block h-9 w-auto" />
+            </a>
+            <!-- Non responsive menu -->
+            <ul class="menu menu-horizontal p-0 font-medium hidden md:flex">
+                <li>
+                    <a href="{{route('dashboard')}}" active="{{request()->routeIs('dashboard')}}" wire:navigate>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Page 2
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Page 3
+                    </a>
+                </li>
             </ul>
-          </div>
+        </div>
         <div class="navbar-end flex items-center gap-4">
             <div class="dropdown relative inline-flex [--auto-close:inside] [--offset:8] [--placement:bottom-end]">
                 <button id="profile-dropdown" type="button" class="dropdown-toggle flex flex-row items-center gap-x-2" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
