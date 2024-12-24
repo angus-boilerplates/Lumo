@@ -18,7 +18,7 @@ export default {
     },
 
     flyonui: {
-        themes: ["corporate"]
+        themes: ["dark"]
     },
 
     plugins: [
