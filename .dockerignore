@@ -5,7 +5,6 @@ node_modules
 .env
 .git
 .github
-public/images
 vendor
 storage/logs/*
 storage/framework/cache/*
@@ -13,7 +12,6 @@ storage/framework/sessions/*
 storage/framework/views/*
 storage/pail
 bootstrap/cache/*
-tests
 *.idea
 *.cache
 *.log

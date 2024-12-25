@@ -77,8 +77,6 @@ RUN chown -R www-data:web /var/www/html && \
 # Copy Nginx config file
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 
-# Copy .env.run
-COPY .env.run /var/www/html/.env
 
 # Expose port 80
 EXPOSE 80
