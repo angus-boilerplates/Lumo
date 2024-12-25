@@ -1,0 +1,17 @@
+Dockerfile
+docker-compose.yml
+README.md
+node_modules
+.env
+.git
+.github
+vendor
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/pail
+bootstrap/cache/*
+*.idea
+*.cache
+*.log
