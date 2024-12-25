@@ -1,8 +1,8 @@
 <nav class="navbar rounded-box flex w-full items-center justify-between gap-2 shadow">
   <div class="navbar-start max-md:w-1/4">
-    <a class="link text-base-content/90 link-neutral text-xl font-semibold no-underline" href="#">
-      FlyonUI
-    </a>
+      <a href="{{ route('index') }}" class="md:block hidden" wire:navigate>
+          <x-application-logo class="block h-9 w-auto" />
+      </a>
   </div>
   <div class="navbar-center max-md:hidden">
     <ul class="menu menu-horizontal p-0 font-medium">
