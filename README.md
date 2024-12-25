@@ -91,6 +91,54 @@ sail npm run dev
 
 Visit the application in your browser at [http://localhost](http://localhost)
 
+## Dockerize the app
+
+This app can be dockerized for deployment and testing in CI/CD pipelines.
+
+### Production
+
+The production image builds a production ready docker container with all the required services such as nginx, php-fpm etc.
+
+#### Build the image
+```bash
+docker build --target prod -t lumo-prod-image .
+```
+
+#### Run the image
+
+Running the production image requires the container to have access to environment variables, these can be passed in using the `-e` flag.
+
+Below is an example of running the container with the required environment variables.
+
+```bash
+docker run -d -p 9000:80 --name lumo \
+    -e APP_NAME=Lumo \
+    -e APP_ENV=production \
+    -e APP_KEY=base64:NHZpNnVnM2p0b2VmZnV6MDN1ZDJmeWt1bDJpemlxeDA= \
+    -e DB_CONNECTION=PUT_DB_CONNECTION_HERE \
+    lumo-prod-image
+```
+
+
+### Testing
+
+The test image builds a container that is optimized for running tests, the entrypoint is set to run the tests and exit when complete.
+
+#### Build the image
+
+```bash
+docker build --target test -t lumo-test-image .
+```
+
+#### Run the image
+
+Unlike the production image, the test image has environment variabes baked into the Dockerfile. So to run the tests you can simply run the image.
+
+```bash
+docker run --name lumo-tests lumo-test-image
+```
+
+
 ## Setting up PHPStorm php interpreter
 
 If you are using PHPStorm you can set up the PHP interpreter to use the Laravel Sail container.
