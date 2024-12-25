@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name('index');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
