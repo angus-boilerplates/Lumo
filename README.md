@@ -1,5 +1,7 @@
-
-<p style="text-align: center;"><img src="public/assets/images/core/logo.svg"  width="300"></p>
+<picture style="text-align: center;">
+  <source media="(prefers-color-scheme: dark)" srcset="public/assets/images/core/logo_light.svg">
+  <img alt="Lumo Logo" src="public/assets/images/core/logo.svg" width="300">
+</picture>
 
 # Lumo
 
